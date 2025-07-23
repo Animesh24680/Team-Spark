@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Adulteration Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-blue-600 to-indigo-700 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-3xl font-bold tracking-wide rounded-md p-2 hover:bg-blue-700 transition-colors duration-300">
+                FoodGuard
+            </a>
+            <div class="space-x-6">
+                <a href="#" class="text-white text-lg font-medium hover:text-blue-200 transition-colors duration-300">Dashboard</a>
+                <a href="#" class="text-white text-lg font-medium hover:text-blue-200 transition-colors duration-300">Reports</a>
+                <a href="#" class="text-white text-lg font-medium hover:text-blue-200 transition-colors duration-300">Analytics</a>
+                <a href="#" class="text-white text-lg font-medium hover:text-blue-200 transition-colors duration-300">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white py-16 shadow-md">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+                Monitor Food Safety with Precision
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Gain insights into food adulteration trends, detection methods, and health risks to ensure public safety.
+            </p>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                View Data
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto my-8 p-6 bg-white rounded-lg shadow-xl flex-grow">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Overview</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Card 1 -->
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-blue-800 mb-2">Total Incidents</h3>
+                <p class="text-4xl font-bold text-blue-600">996</p>
+                <p class="text-gray-600 mt-2">Recorded adulteration incidents</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-green-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-green-800 mb-2">High Risk Cases</h3>
+                <p class="text-4xl font-bold text-green-600">XXX</p> <!-- Placeholder, will be dynamically populated -->
+                <p class="text-gray-600 mt-2">Incidents with severe health risks</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-yellow-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-yellow-800 mb-2">Actions Taken</h3>
+                <p class="text-4xl font-bold text-yellow-600">YYY</p> <!-- Placeholder, will be dynamically populated -->
+                <p class="text-gray-600 mt-2">Product recalls, fines, and warnings</p>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2">Recent Adulteration Data</h2>
+        <div class="overflow-x-auto rounded-lg shadow-md">
+            <table class="min-w-full bg-white border border-gray-200">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Product Name</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Brand</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Category</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Adulterant</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Detection Date</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Severity</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Health Risk</th>
+                        <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider border-b">Action Taken</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                    <!-- Data rows will be inserted here by JavaScript -->
+                    <tr>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Butter</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">BrandB</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Meat</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Artificial sweeteners</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">2024-11-05</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Moderate</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Low</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Product Recall</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Chicken</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">BrandC</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Dairy</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Coloring agents</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">2024-05-23</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Severe</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Medium</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Warning Issued</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Yogurt</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">BrandC</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Meat</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Artificial sweeteners</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">2024-02-17</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Severe</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">High</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Investigation Launched</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Wine</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">BrandB</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Beverages</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Coloring agents</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">2024-05-16</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Minor</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Medium</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Product Recall</td>
+                    </tr>
+                    <tr>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Bread</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">BrandD</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Dairy</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Water</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">2024-06-06</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Severe</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Medium</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">Warning Issued</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white p-6 text-center mt-8 rounded-t-lg shadow-inner">
+        <p>&copy; 2025 FoodStar. All rights reserved.</p>
+        <div class="flex justify-center space-x-4 mt-2">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a>
+        </div>
+    </footer>
+
+    <script>
+        // This script is a placeholder for future dynamic data loading.
+        // You can use JavaScript to fetch data from your CSV or an API
+        // and populate the table and cards.
+
+        // Example of how you might fetch and display data (conceptual)
+        async function loadFoodAdulterationData() {
+            // In a real application, you would fetch the CSV or data from a backend
+            // For now, we'll use the snippet provided in the prompt.
+            const csvData = `adulteration_id,product_name,brand,category,adulterant,detection_date,detection_method,severity,health_risk,action_taken,,,,,,\n1,Butter,BrandB,Meat,Artificial sweeteners,2024-11-05,Microbiological Analysis,Moderate,Low,Product Recall,,,,,,\n2,Chicken,BrandC,Dairy,Coloring agents,5/23/2024,Sensory Evaluation,Severe,Medium,Warning Issued,,Row Labels,Count of detection_method,Count of severity,Count of health_risk,Count of action_taken\n3,Yogurt,BrandC,Meat,Artificial sweeteners,2/17/2024,Sensory Evaluation,Severe,High,Investigation Launched,,Beef,92,92,92,92\n4,Wine,BrandB,Beverages,Coloring agents,5/16/2024,Spectroscopy,Minor,Medium,Product Recall,,BrandA,18,18,18,18\n5,Bread,BrandD,Dairy,Water,2024-06-06,Chemical Analysis,Severe,Medium,Warning Issued,,BrandB,13,13,13,13\n6,Wine,BrandD,Dairy,Melamine,2024-12-05,Microbiological Analysis,Severe,Medium,Investigation Launched,,BrandC,22,22,22,22\n7,Beef,BrandC,Meat,Melamine,2024-01-04,Chemical Analysis,Minor,Medium,Investigation Launched,,BrandD,20,20,20,20\n8,Juice,BrandD...`;
+
+            const rows = csvData.split('\n').slice(1); // Skip header row
+            const tableBody = document.getElementById('data-table-body');
+            tableBody.innerHTML = ''; // Clear existing placeholder rows
+
+            let highRiskCount = 0;
+            let totalIncidents = 0;
+
+            // Limit to first 10 rows for display purposes, or adjust as needed
+            for (let i = 0; i < Math.min(rows.length, 10); i++) {
+                const columns = rows[i].split(',');
+                // Ensure there are enough columns to avoid errors
+                if (columns.length >= 10) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[1] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[2] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[3] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[4] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[5] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[6] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[7] || ''}</td>
+                        <td class="py-3 px-4 border-b border-gray-200 text-gray-700">${columns[8] || ''}</td>
+                    `;
+                    tableBody.appendChild(row);
+
+                    // Update counts for overview cards
+                    totalIncidents++;
+                    if (columns[7] && columns[7].toLowerCase() === 'high') {
+                        highRiskCount++;
+                    }
+                }
+            }
+
+            // Update overview cards
+            document.querySelector('.bg-blue-50 p:nth-child(2)').textContent = totalIncidents;
+            document.querySelector('.bg-green-50 p:nth-child(2)').textContent = highRiskCount;
+            // The 'Actions Taken' card would require more complex parsing of the 'action_taken' column
+            // For now, it remains a placeholder 'YYY'.
+        }
+
+        // Load data when the page loads
+        window.onload = loadFoodAdulterationData;
+    </script>
+</body>
+</html>
