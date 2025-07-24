@@ -1,7 +1,7 @@
 # Team-Spark
 Food Adulteration is tackled by Group 78 - Learnathon providing a unique insight and solution.
 
-TITLE: "AdulterationGotANEWSolution" - Solution to food adulturation.
+TITLE: "FooDAdulterationGotANEWSolution" - Solution to food adulturation.
 
 TEAM MEMBERS:
 
