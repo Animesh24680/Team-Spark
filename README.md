@@ -9,6 +9,4 @@ TEAM MEMBERS:
 
 24CSE228 - 24UG010292 - Subhashree Panda - 24cse228.subhashreepanda@giet.edu
 
-24CSE219 - 24UG010283- Pratyusha Rout - 24cse219.pratyusharout@giet.edu
-
 24CSE212 - 24UG010276 - Kumar Pratyush - 24cse212.kumarpratyush@giet.edu
